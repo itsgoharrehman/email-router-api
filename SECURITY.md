@@ -2,22 +2,24 @@
 
 ## Supported Versions
 
-| Version | Supported |
-|---|---|
-| Default Branch (main) | Yes |
+| Version | Supported | Description |
+| :--- | :--- | :--- |
+| `1.0.x` | Yes | Current stable release branch (`main`) |
+| `< 1.0.0` | No | Legacy versions |
+
+## Security Scope and Invariants
+
+email-router-api executes at the Cloudflare Workers edge and handles inbound mail routing. Security invariants include:
+* **CRLF Header Injection Defense**: Inbound values rendered into email headers must be strictly sanitized to prevent carriage return / line feed (`\r`, `\n`) header injection attacks.
+* **Credential Isolation**: Cloudflare API tokens and email bindings must never be hardcoded into source files or serialized in API responses.
+* **CORS Policy**: Cross-origin requests must be restricted to authorized domains in production environments.
 
 ## Reporting a Vulnerability
 
-We take the security of this repository and our software seriously. If you believe you have identified a vulnerability, security flaw, or credential exposure, please report it immediately through private disclosure channels.
+If you discover an email relay vulnerability, header injection vector, or authentication flaw, report it privately:
 
-* **Security Contact**: goharrehmanfsd260@gmail.com
-* **Maintainer**: Gohar Rehman (@itsgoharrehman)
+* **Security Contact**: Gohar Rehman
+* **Email**: `goharrehmanfsd260@gmail.com`
+* **Response SLA**: Initial acknowledgement within 48 hours; resolution timeline provided within 7 days.
 
-### Vulnerability Report Details
-When reporting a vulnerability, please provide:
-* A detailed description of the issue and potential security impact.
-* Exact step-by-step reproduction instructions or a minimal proof-of-concept.
-* Specific affected files, functions, or endpoints.
-
-### Responsible Disclosure
-Please do not open public GitHub issues or public pull requests detailing undisclosed vulnerabilities. Reports will be acknowledged within 48 hours and investigated promptly.
+Please do not open public GitHub issues or discussions regarding undisclosed vulnerabilities.
