@@ -15,6 +15,15 @@ export default {
       return new Response("Method Not Allowed", { status: 405 });
     }
 
+    // Require a valid API key on every POST request
+    const providedKey = request.headers.get("X-API-Key") || "";
+    if (!env.API_KEY || providedKey !== env.API_KEY) {
+      return new Response(JSON.stringify({ success: false, error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+      });
+    }
+
     try {
       const body = await request.json();
       const name = body.name || "";
