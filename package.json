@@ -1,0 +1,17 @@
+{
+  "name": "email-router-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker edge gateway to parse, filter, and route inbound and outbound emails to webhooks and database queues",
+  "main": "worker.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "author": "Gohar Rehman <goharrehmanfsd260@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/itsgoharrehman/email-router-api"
+}
