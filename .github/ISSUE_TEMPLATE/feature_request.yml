@@ -1,0 +1,23 @@
+name: Feature Request
+description: Propose a new routing filter, webhook integration, or capability
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a new routing rule, dispatch target, or operational enhancement.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is this feature related to a limitation or routing requirement?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Clear description of the proposed feature and implementation approach.
+    validations:
+      required: true
